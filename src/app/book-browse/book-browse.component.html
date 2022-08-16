@@ -1,0 +1,49 @@
+<html>
+    <body><br>
+        <div>
+            <div class="card-header text-dark">
+                {{pageTitle}}            
+            </div><br>
+            <div class="card-body ">
+                <div class="row">
+                    <div class="col-md-2">Browse Filter By : </div>
+                    <div class="col-md-2">
+                        <input type="dropdown">
+                    </div>
+                </div>
+            </div><br>
+            <div class = "table-responsive">
+                <table class = "table" *ngIf = 'books.length'>
+                    <thead class="table-dark">
+                        <tr>
+                            <th>
+                                <button class="btn btn-primary">
+                                    Book Logo
+                                </button>
+                            </th>
+                            <th>Title</th>
+                            <th>Author</th>
+                            <th>Publisher</th>
+                            <th>Price</th>
+                            <th>Published Date</th>
+                            <th>Category</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor = "let book of books">
+                            <td>
+                                <img [src] = "book.urlLogo" [title] = "book.bookTitle" [style.width.px] = "iconWidth" [style.margin.px] = "iconMargin" />
+                            </td>
+                            <td>{{book.bookTitle}}</td>
+                            <td>{{book.author}}</td>
+                            <td>{{book.publisher}}</td>
+                            <td>{{book.price}}</td>
+                            <td>{{book.publishedDate}}</td>
+                            <td>{{book.category}}</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>        
+    </body>
+</html>
