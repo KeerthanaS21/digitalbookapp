@@ -6,9 +6,14 @@
             </div><br>
             <div class="card-body ">
                 <div class="row">
-                    <div class="col-md-2">Browse Filter By : </div>
-                    <div class="col-md-2">
-                        <input type="dropdown">
+                    <div class="col-md-2">book filter by : </div>
+                    <div class="col-md-4">
+                        <input type="text" [(ngModel)]="filterSelected" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <h4>Book filter by : {{filterSelected}}</h4>
                     </div>
                 </div>
             </div><br>
@@ -17,8 +22,9 @@
                     <thead class="table-dark">
                         <tr>
                             <th>
-                                <button class="btn btn-primary">
-                                    Book Logo
+                                <button class="btn btn-primary"
+                                    (click)="hideandShow()">
+                                  {{showIcon? 'Hide' : 'Show'}} Book Logo
                                 </button>
                             </th>
                             <th>Title</th>
@@ -31,8 +37,11 @@
                     </thead>
                     <tbody>
                         <tr *ngFor = "let book of books">
-                            <td>
-                                <img [src] = "book.urlLogo" [title] = "book.bookTitle" [style.width.px] = "iconWidth" [style.margin.px] = "iconMargin" />
+                            <td><img *ngIf="showIcon"
+                                [src] = "book.urlLogo" 
+                                [title] = "book.bookTitle" 
+                                [style.width.px] = "iconWidth" 
+                                [style.margin.px] = "iconMargin" />
                             </td>
                             <td>{{book.bookTitle}}</td>
                             <td>{{book.author}}</td>
@@ -43,6 +52,9 @@
                         </tr>
                     </tbody>
                 </table>
+            </div>
+            <div class="text-center">
+                <button (click)="addPrice()">Price</button>
             </div>
         </div>        
     </body>

@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
+import { FormsModule } from "@angular/forms"; 
 import { AppComponent } from './app.component';
 import { BookBrowseComponent } from './book-browse/book-browse.component';
 
@@ -10,7 +10,7 @@ import { BookBrowseComponent } from './book-browse/book-browse.component';
     BookBrowseComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule, FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

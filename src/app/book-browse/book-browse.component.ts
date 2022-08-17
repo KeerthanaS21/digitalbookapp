@@ -10,6 +10,8 @@ export class BookBrowseComponent implements OnInit {
   pageTitle = 'Display Books'
   iconWidth = 50
   iconMargin = 2
+  showIcon: Boolean = false
+  filterSelected = ''
 
   books : any[] = [
     {
@@ -35,6 +37,16 @@ export class BookBrowseComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  addPrice(): void {
+    this.books.forEach(element => {
+      element.price = Number(element.price) + 10;
+    });
+  }
+
+  hideandShow(): void {
+    this.showIcon = !this.showIcon;
   }
 
 }
